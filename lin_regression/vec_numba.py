@@ -18,10 +18,10 @@ def numba_loop(x, d, mu, N, epochs):
 
     return w
 
-class PureNumba(Gen):
+class VectorNumba(Gen):
     def run(self):
         return numba_loop(self.x, self.d, self.mu, self.N, self.N_epochs)
 
 if __name__ == '__main__':
-    gen = PureNumba()
+    gen = VectorNumba()
     gen.simple_time()

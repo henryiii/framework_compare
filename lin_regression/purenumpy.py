@@ -1,5 +1,4 @@
 from gen import Gen
-import itertools
 import numpy as np
 
 class PureNumpy(Gen):
@@ -12,7 +11,7 @@ class PureNumpy(Gen):
         w = np.zeros(2)
         grad = np.empty(2)
 
-        for _ in itertools.repeat(None, self.N_epochs):
+        for _ in range(self.N_epochs):
             np.subtract(self.d, y, out=err)
             grad[:] = f * np.sum(err), f * (err @ self.x)
             w += self.mu * grad

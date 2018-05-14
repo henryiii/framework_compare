@@ -6,7 +6,7 @@ python np_inv.py
 python np_pinv.py
 python purepython.py
 python purenumpy.py
-python purenumba.py
+python vec_numba.py
 python graphtensorflow.py
 python eagertensorflow.py
 python purepytorch.py
