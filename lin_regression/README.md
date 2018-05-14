@@ -35,6 +35,17 @@ Running PurePyTorch
   Answer: w_0=2.9599, w_1=2.0330
 ```
 
+PyPy:
+
+```
+Running PurePython
+  Solve time: 15.78 seconds
+  Answer: w_0=2.9599, w_1=2.0330
+Running PureNumpy
+  Solve time: 1.72 seconds
+  Answer: w_0=2.9599, w_1=2.0330
+```
+
 Nim example (contributed):
 
 ```
