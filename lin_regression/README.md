@@ -27,6 +27,9 @@ Running VectorNumba
 Running PureNumba
   Solve time: 0.16 seconds
   Answer: w_0=2.9599, w_1=2.0330
+Running PureCython
+  Solve time: 0.15 seconds
+  Answer: w_0=2.9599, w_1=2.0330
 Running GraphTensorFlow
   Solve time: 1.64 seconds
   Answer: w_0=2.9599, w_1=2.0330
