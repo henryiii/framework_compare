@@ -22,3 +22,7 @@ echo "Nim:"
 
 nim -c -d:release example.nim
 ./example
+
+echo "C++:"
+$CXX -std=c++11 compile.cpp -O3
+./a.out

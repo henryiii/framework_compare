@@ -52,6 +52,14 @@ Running PureNumpy
   Answer: w_0=2.9599, w_1=2.0330
 ```
 
+C++11:
+```
+Running C++ example
+  Solve time: 0.113623
+  Answer: w_0=3.01296, w_1=2.0307
+```
+
+
 Nim example (contributed):
 
 ```
