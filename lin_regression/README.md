@@ -19,10 +19,13 @@ Running PurePython
   Solve time: 34.03 seconds
   Answer: w_0=2.9599, w_1=2.0330
 Running PureNumpy
-  Solve time: 0.57 seconds
+  Solve time: 0.38 seconds
+  Answer: w_0=2.9598, w_1=2.0330
+Running VectorNumba
+  Solve time: 0.37 seconds
   Answer: w_0=2.9599, w_1=2.0330
 Running PureNumba
-  Solve time: 0.37 seconds
+  Solve time: 0.16 seconds
   Answer: w_0=2.9599, w_1=2.0330
 Running GraphTensorFlow
   Solve time: 1.64 seconds

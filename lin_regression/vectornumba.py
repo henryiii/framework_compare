@@ -2,7 +2,11 @@ from gen import Gen
 import numpy as np
 from numba import jit, float32, int32
 
-@jit(float32[:](float32[:], float32[:], float32, int32, int32), nopython=True)
+type_dict = {'f':float32}
+
+@jit(float32[:](float32[:], float32[:], float32, int32, int32),
+        locals=type_dict,
+        nopython=True)
 def numba_loop(x, d, mu, N, epochs):
     f = 2 / N
 
@@ -12,7 +16,7 @@ def numba_loop(x, d, mu, N, epochs):
 
     for _ in range(epochs):
         err = d - y
-        grad[:] = f * np.sum(err), f * (err @ x)
+        grad[:] = f * err.sum(), f * (err @ x)
         w += mu * grad
         y[:] = w[0] + w[1] * x
 
