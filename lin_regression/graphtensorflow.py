@@ -17,6 +17,7 @@ class GraphTensorFlow(Gen):
         grad = f * tf.matmul(tf.transpose(self.X_tf), e)
 
         self.training_op = tf.assign(w, w - self.mu * grad)
+        
         init = tf.global_variables_initializer()
         self.sess.run(init)
         self.sess.run(self.training_op)
