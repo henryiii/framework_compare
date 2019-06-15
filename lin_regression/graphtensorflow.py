@@ -6,8 +6,8 @@ class GraphTensorFlow(Gen):
     def prepare(self):
         self.X_tf = tf.constant(self.X, dtype=tf.float32, name="X_tf")
         self.d_tf = tf.constant(self.d[:,None], dtype=tf.float32, name="d_tf")
-
-    def run(self):
+        self.sess = tf.Session()
+        
         f = 2 / self.N
 
         w = tf.Variable(tf.zeros((2, 1)), name="w_tf")
@@ -17,12 +17,13 @@ class GraphTensorFlow(Gen):
 
         training_op = tf.assign(w, w - self.mu * grad)
         init = tf.global_variables_initializer()
+        self.sess.run(init)
 
-        with tf.Session() as sess:
-            init.run()
-            for epoch in range(self.N_epochs):
-                sess.run(training_op)
-            opt = w.eval()
+
+    def run(self):
+        for epoch in range(self.N_epochs):
+            self.sess.run(training_op)
+        opt = w.eval()
         return opt.squeeze()
 
 
