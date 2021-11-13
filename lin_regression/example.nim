@@ -12,13 +12,13 @@ randomize(444)
 
 const
   N = 10_000
-  sigma = 0.1
-  f = 2 / N
-  mu = 0.001
+  sigma = 0.1'f32
+  f = float32(2 / N)
+  mu = 0.001'f32
   nEpochs = 10_000
 
 
-proc randomNormal(mean = 0.0, std = 1.0): float =
+proc randomNormal(mean = 0.0, std = 1.0): float32 =
   # https://github.com/mratsim/Arraymancer/blob/master/src/tensor/init_cpu.nim#L209-L222
   let
     x = rand(1.0)
@@ -27,21 +27,21 @@ proc randomNormal(mean = 0.0, std = 1.0): float =
   return rho * cos(2.0 * PI * x) * std + mean
 
 
-var x, d: array[N, float]
+var x, d: array[N, float32]
 for i in 0 ..< N:
-  x[i] = f * i.float
-  d[i] = 3.0 + 2.0 * x[i] + sigma * randomNormal()
+  x[i] = f * i.float32
+  d[i] = 3.0.float32 + 2.0.float32 * x[i] + sigma * randomNormal()
 
 
-proc gradientDescent(x, d: array[N, float], mu: float, nEpochs: int):
-    tuple[w0, w1: float] =
+proc gradientDescent(x, d: array[N, float32], mu: float32, nEpochs: int):
+    tuple[w0, w1: float32] =
   var
-    y: array[N, float]
-    err: float
-    w0, w1: float
+    y: array[N, float32]
+    err: float32
+    w0, w1: float32
 
   for n in 1 .. nEpochs:
-    var grad0, grad1: float
+    var grad0, grad1: float32
 
     for i in 0 ..< N:
       err = f * (d[i] - y[i])
@@ -60,3 +60,4 @@ proc gradientDescent(x, d: array[N, float], mu: float, nEpochs: int):
 let start = cpuTime()
 echo gradientDescent(x, d, mu, nEpochs)
 echo "Nim time: ", cpuTime() - start, " seconds"
+

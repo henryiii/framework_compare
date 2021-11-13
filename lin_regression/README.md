@@ -64,6 +64,6 @@ Nim example (contributed):
 
 ```
 (w0: 2.968954757075724, w1: 2.02593328759163)
-Nim time: 0.139302 seconds
+Nim time: ~~0.139302 seconds~~ (needs to be rerun using the newer code)
 ```
 
