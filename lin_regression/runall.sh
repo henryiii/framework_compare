@@ -20,7 +20,7 @@ pypy3 purenumpy.py
 
 echo "Nim:"
 
-nim -c -d:release example.nim
+nim c -d:release example.nim
 ./example
 
 echo "C++:"
