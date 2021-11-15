@@ -27,9 +27,9 @@ class Gen(abc.ABC):
         'All classes must implement this.'
 
     def simple_time(self):
-        t0 = time.time()
+        t0 = time.perf_counter()
         ws = self.run()
-        t1 = time.time()
+        t1 = time.perf_counter()
         print('Running {}'.format(self.__class__.__name__))
-        print('  Solve time: {:.2f} seconds'.format(round(t1 - t0, 2)))
+        print('  Solve time: {:.4f} seconds'.format(t1 - t0))
         print('  Answer: w_0={:.4f}, w_1={:.4f}'.format(*ws))

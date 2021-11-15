@@ -25,6 +25,6 @@ class PurePython(Gen):
         return w
 
 
-if __name__ == '__main__':
+if __name__ == '__main__' or __name__ == '<run_path>':
     gen = PurePython()
     gen.simple_time()
